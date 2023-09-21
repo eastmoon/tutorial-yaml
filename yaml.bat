@@ -129,6 +129,7 @@ goto end
     echo Command:
     echo      ubuntu            Startup at Ubuntu OS.
     echo      alpine            Startup at Alpine OS.
+    echo      python            Startup at Python container.
     echo.
     echo Run 'cli [COMMAND] --help' for more information on a command.
     goto end
@@ -183,6 +184,33 @@ goto end
     goto end
 
 :cli-alpine-help
+    echo This is a Command Line Interface with project %PROJECT_NAME%
+    echo.
+    echo Options:
+    echo      --help, -h        Show more information with UP Command.
+    goto end
+
+@rem ------------------- Command "python" method -------------------
+
+:cli-python
+    echo ^> Startup and into container
+    @rem build image
+    docker build -t yq:python ./conf/docker/python
+
+    @rem execute container
+    docker run -ti --rm ^
+        --name yq-%PROJECT_NAME% ^
+        -v %cd%\src\python:/app ^
+        -v %cd%\src\yaml:/app/yaml ^
+        -v %cd%\src\json:/app/json ^
+        yq:python sh
+
+    goto end
+
+:cli-python-args
+    goto end
+
+:cli-python-help
     echo This is a Command Line Interface with project %PROJECT_NAME%
     echo.
     echo Options:

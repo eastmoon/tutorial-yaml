@@ -8,3 +8,6 @@ RUN apt-get install -y curl
 ENV VERSION=v4.35.1
 ENV BINARY=yq_linux_amd64
 RUN curl -L https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz | tar xz && mv ${BINARY} /usr/bin/yq
+
+# Setting
+WORKDIR /app

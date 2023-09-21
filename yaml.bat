@@ -145,6 +145,8 @@ goto end
     @rem execute container
     docker run -ti --rm ^
         --name yq-%PROJECT_NAME% ^
+        -v %cd%\src\shell:/app ^
+        -v %cd%\src\yaml:/app/yaml ^
         yq:debian bash
 
     goto end
@@ -169,6 +171,8 @@ goto end
     @rem execute container
     docker run -ti --rm ^
         --name yq-%PROJECT_NAME% ^
+        -v %cd%\src\shell:/app ^
+        -v %cd%\src\yaml:/app/yaml ^
         yq:alpine sh
 
     goto end

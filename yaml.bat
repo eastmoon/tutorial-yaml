@@ -147,6 +147,7 @@ goto end
         --name yq-%PROJECT_NAME% ^
         -v %cd%\src\shell:/app ^
         -v %cd%\src\yaml:/app/yaml ^
+        -v %cd%\src\json:/app/json ^
         yq:debian bash
 
     goto end
@@ -173,6 +174,7 @@ goto end
         --name yq-%PROJECT_NAME% ^
         -v %cd%\src\shell:/app ^
         -v %cd%\src\yaml:/app/yaml ^
+        -v %cd%\src\json:/app/json ^
         yq:alpine sh
 
     goto end

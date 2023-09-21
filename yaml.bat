@@ -203,7 +203,7 @@ goto end
         -v %cd%\src\python:/app ^
         -v %cd%\src\yaml:/app/yaml ^
         -v %cd%\src\json:/app/json ^
-        yq:python sh
+        yq:python bash
 
     goto end
 
